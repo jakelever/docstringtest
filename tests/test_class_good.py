@@ -3,31 +3,17 @@ import sys
 import os
 import importlib
 import docstringtest
-
-def addDataDirToPath():
-	thisDir = os.path.dirname(os.path.realpath(__file__))
-	dataDir = os.path.join(thisDir,'data')
-	sys.path.append(dataDir)
-	return dataDir
+import docstringtest.examples.testclass_good
 
 def test_module_good():
-	addDataDirToPath()
-	mod = importlib.import_module('testclass_good')
-
 	# Shouldn't throw any errors
-	docstringtest.processModule(mod)
+	docstringtest.processModule(docstringtest.examples.testclass_good)
 
 def test_class_good():
-	addDataDirToPath()
-	mod = importlib.import_module('testclass_good')
-
 	# Shouldn't throw any errors
-	docstringtest.processClass(mod.TestClass)
+	docstringtest.processClass(docstringtest.examples.testclass_good.ExampleGoodClass)
 
 def test_function_good_constructor():
-	addDataDirToPath()
-	mod = importlib.import_module('testclass_good')
-
 	# Shouldn't throw any errors
-	docstringtest.processFunction(mod.TestClass.__init__)
+	docstringtest.processFunction(docstringtest.examples.testclass_good.ExampleGoodClass.__init__)
 
