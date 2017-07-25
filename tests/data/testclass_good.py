@@ -15,7 +15,7 @@ class TestClass:
 		"""
 		pass
 
-	def _shouldBeIgnore(self, varA, varB):
+	def _shouldBeIgnored(self, varA, varB):
 		pass
 
 	def staticMethod(varA):
