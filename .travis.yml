@@ -1,0 +1,22 @@
+sudo: required
+language: python
+python:
+  - "2.7"
+  - "3.4"
+  - "3.5"
+  - "3.6"
+# versions of java to test (for parsers)
+before_install:
+  - sudo apt-get update
+# command to install dependencies
+install:
+  - pip install --upgrade pip setuptools wheel
+  - pip install pytest coverage pytest-timeout
+  - pip install python-coveralls
+  - pip install --upgrade coverage
+  - pip install .
+# command to run tests
+script:
+  - coverage run --branch -m pytest -v --timeout=90 && coverage report -m
+after_success:
+  - coveralls
