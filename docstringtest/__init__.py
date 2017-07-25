@@ -5,7 +5,7 @@ def codeReturnsSomething(m):
 	sourceCode = inspect.getsource(m).split('\n')
 	for line in sourceCode:
 		tokens = line.strip().split()
-		if len(tokens) >= 2 and tokens[0] == 'return':
+		if len(tokens) >= 2 and (tokens[0] == 'return' or tokens[0] == 'yield'):
 			return True
 	return False
 

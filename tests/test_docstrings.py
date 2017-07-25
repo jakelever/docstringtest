@@ -57,3 +57,18 @@ def test_docstring_withReturn():
 
 	assert docstring == "\n".join(expected)
 
+def test_docstring_withYield():
+	addDataDirToPath()
+	mod = importlib.import_module('testclass_good')
+
+	expected = [':param self: description',
+		':param varA: description',
+		':param varB: description',
+		':type self: type description',
+		':type varA: type description',
+		':type varB: type description',
+		':return: return description',
+		':rtype: the return type description']
+	docstring = docstringtest.generateDocstring(mod.TestClass.basicMethodWithYield)
+
+	assert docstring == "\n".join(expected)
