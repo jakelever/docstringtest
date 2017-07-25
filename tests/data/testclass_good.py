@@ -81,3 +81,28 @@ class TestClass:
 		"""
 		for i in range(10):
 			yield i
+
+	def staticMethodNoVariables():
+		"""
+		Some basic description
+		"""
+		pass
+
+	def staticMethodNoVariablesWithReturn():
+		"""
+		Some basic description
+
+		:return: return description
+		:rtype: the return type description
+		"""
+		return 1
+
+	def staticMethodNoVariablesWithYield():
+		"""
+		Some basic description
+
+		:return: return description
+		:rtype: the return type description
+		"""
+		for i in range(10):
+			yield i
