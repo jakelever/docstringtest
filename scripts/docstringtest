@@ -2,7 +2,7 @@
 
 import argparse
 import importlib
-
+import docstringtest
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description='')
@@ -12,13 +12,5 @@ if __name__ == '__main__':
 	packageName = args.package
 	mod = importlib.import_module(packageName)
 
-	#processModule(mod)
+	docstringtest.processModule(mod)
 
-	import kindred
-	processClass(kindred.RelationClassifier)
-	#print dir(mod.__init__)
-
-	#for x in dir(mod):
-	#	print x
-	#	print dir(x)
-	#	print '-'*30
