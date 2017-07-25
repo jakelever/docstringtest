@@ -23,3 +23,11 @@ def test_class_good():
 
 	# Shouldn't throw any errors
 	docstringtest.processClass(mod.TestClass)
+
+def test_function_good_constructor():
+	addDataDirToPath()
+	mod = importlib.import_module('testclass_good')
+
+	# Shouldn't throw any errors
+	docstringtest.processFunction(mod.TestClass.__init__)
+

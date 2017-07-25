@@ -22,8 +22,8 @@ def generateDocstring(m):
 
 	return txt
 
-def processMethod(m):
-	methodArgs = m.__code__.co_varnames[:m.__code__.co_argcount]
+def processFunction(func):
+	methodArgs = func.__code__.co_varnames[:func.__code__.co_argcount]
 	
 
 def processClass(c):
@@ -31,7 +31,7 @@ def processClass(c):
 		#print name,obj
 		if inspect.ismethod(obj):
 			print(name)
-			processMethod(obj)
+			processFunction(obj)
 
 def processModule(m):
 	for name,obj in inspect.getmembers(m):
