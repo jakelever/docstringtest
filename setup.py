@@ -10,7 +10,7 @@ setup(name='docstringtest',
 	url='https://github.com/jakelever/docstringtest',
 	scripts=['scripts/docstringtest'],
 	license='MIT',
-	packages=['kindred'],
+	packages=['docstringtest'],
 	install_requires=[],
 	include_package_data=True,
 	)
