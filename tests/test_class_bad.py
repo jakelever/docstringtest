@@ -67,7 +67,7 @@ def test_function_bad_basicMethodWithYield():
 def test_function_bad_staticMethodNoVariables():
 	with pytest.raises(docstringtest.DocstringTestError) as excinfo:
 		docstringtest.processFunction(docstringtest.examples.testclass_bad.ExampleBadClass.staticMethodNoVariables)
-	assert excinfo.value.message == "Expected docstring"
+	assert excinfo.value.message == "Unexpected ':return: return description' in docstring"
 	assert excinfo.value.funcName == "staticMethodNoVariables"
 	assert os.path.basename(excinfo.value.filename) == 'testclass_bad.py'
 
