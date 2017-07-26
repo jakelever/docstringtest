@@ -54,7 +54,7 @@ def processFunction(func):
 	expected = params + types + returns
 
 	if inspect.getdoc(func) is None:
-		raise DocstringTestError("Expected docstring",funcFilename,funcName)
+		raise DocstringTestError("Missing docstring",funcFilename,funcName)
 
 	docstring = inspect.getdoc(func).split('\n')
 	docstring = [ line.strip() for line in docstring ]
@@ -64,15 +64,15 @@ def processFunction(func):
 
 	for i in range(max(len(expected),len(docstringWithParams))):
 		if i >= len(docstringWithParams):
-			raise DocstringTestError("Expected '%s' in docstring" % expected[i],funcFilename,funcName)
+			raise DocstringTestError("Missing '%s' in docstring" % expected[i],funcFilename,funcName)
 		elif i >= len(expected):
 			raise DocstringTestError("Unexpected '%s' in docstring" % docstringWithParams[i],funcFilename,funcName)
 		elif not docstringWithParams[i].startswith(expected[i]):
-			raise DocstringTestError("Expected '%s' in docstring" % expected[i],funcFilename,funcName)
+			raise DocstringTestError("Missing '%s' in docstring" % expected[i],funcFilename,funcName)
 
 	# If we have exactly the parameter info and nothing else, then we're missing a description (of some length) about what the function does
 	if len(expected) == len(docstring):
-		raise DocstringTestError("Expected description of function in docstring" ,funcFilename,funcName)
+		raise DocstringTestError("Missing description of function in docstring" ,funcFilename,funcName)
 
 
 def processClass(c):
