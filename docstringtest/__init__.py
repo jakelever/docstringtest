@@ -59,22 +59,16 @@ def processFunction(func):
 	docstring = inspect.getdoc(func).split('\n')
 	docstring = [ line.strip() for line in docstring ]
 	docstring = [ line for line in docstring if line ]
-	
-	if len(expected) > 0:
-		# Find where the parameter information starts in the docstring
-		startingPointList = [ i for i,line in enumerate(docstring) if line.startswith(expected[0]) ]
-		if len(startingPointList) == 0:
-			raise DocstringTestError("Expected '%s' in docstring" % expected[0],funcFilename,funcName)
-		startingPoint = startingPointList[0]
 
-		# Go line by line from the starting point and check everything is there
-		for i,expectedStart in enumerate(expected):
-			if (startingPoint + i) >= len(docstring):
-				raise DocstringTestError("Expected '%s' in docstring" % expectedStart,funcFilename,funcName)
+	docstringWithParams = [ line for line in docstring if line.startswith(':param') or line.startswith(':type') or line.startswith(':return: ') or line.startswith(':rtype: ') ]
 
-			docstringLine = docstring[startingPoint + i]
-			if not docstringLine.startswith(expectedStart):
-				raise DocstringTestError("Expected '%s' in docstring" % expectedStart,funcFilename,funcName)
+	for i in range(max(len(expected),len(docstringWithParams))):
+		if i >= len(docstringWithParams):
+			raise DocstringTestError("Expected '%s' in docstring" % expected[i],funcFilename,funcName)
+		elif i >= len(expected):
+			raise DocstringTestError("Unexpected '%s' in docstring" % docstringWithParams[i],funcFilename,funcName)
+		elif not docstringWithParams[i].startswith(expected[i]):
+			raise DocstringTestError("Expected '%s' in docstring" % expected[i],funcFilename,funcName)
 
 	# If we have exactly the parameter info and nothing else, then we're missing a description (of some length) about what the function does
 	if len(expected) == len(docstring):
