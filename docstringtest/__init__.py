@@ -53,10 +53,10 @@ def processFunction(func):
 
 	expected = params + types + returns
 
-	if inspect.getdoc(func) is None:
+	if func.__doc__ is None:
 		raise DocstringTestError("Missing docstring",funcFilename,funcName)
 
-	docstring = inspect.getdoc(func).split('\n')
+	docstring = func.__doc__.split('\n')
 	docstring = [ line.strip() for line in docstring ]
 	docstring = [ line for line in docstring if line ]
 
