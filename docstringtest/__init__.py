@@ -77,8 +77,7 @@ def processFunction(func):
 
 def processClass(c):
 	for name,obj in inspect.getmembers(c):
-		#print name,obj
-		if inspect.ismethod(obj):
+		if inspect.ismethod(obj) or inspect.isfunction(obj):
 			processFunction(obj)
 
 def processModule(m):
