@@ -36,7 +36,7 @@ def generateDocstring(func):
 	return txt
 
 def processFunction(func):
-	funcName = func.func_name
+	funcName = func.__code__.co_name
 
 	# Skip methods that start with '_' except for constructors
 	if funcName.startswith('_') and not funcName == '__init__':
