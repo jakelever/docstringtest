@@ -2,8 +2,17 @@
 import inspect
 
 class DocstringTestError(RuntimeError):
-	def __init__(self, message):
+	def __init__(self, message, filename, funcName=None):
 		super(DocstringTestError, self).__init__(message)
+		self.message = message
+		self.funcName = funcName
+		self.filename = filename
+	
+	def __str__(self):
+		if self.funcName is None:
+			return "%s in file %s" % (self.message,self.filename)
+		else:	
+			return "%s for function %s in file %s" % (self.message,self.funcName,self.filename)
 
 def codeReturnsSomething(func):
 	sourceCode = inspect.getsource(func).split('\n')
@@ -45,7 +54,7 @@ def processFunction(func):
 	expected = params + types + returns
 
 	if inspect.getdoc(func) is None:
-		raise DocstringTestError("Expected docstring for function %s in file %s" % (funcName,funcFilename))
+		raise DocstringTestError("Expected docstring",funcFilename,funcName)
 
 	docstring = inspect.getdoc(func).split('\n')
 	docstring = [ line.strip() for line in docstring ]
@@ -55,18 +64,21 @@ def processFunction(func):
 		# Find where the parameter information starts in the docstring
 		startingPointList = [ i for i,line in enumerate(docstring) if line.startswith(expected[0]) ]
 		if len(startingPointList) == 0:
-			raise DocstringTestError("Expected '%s' in docstring of function %s in file %s" % (expected[0],funcName,funcFilename))
+			raise DocstringTestError("Expected '%s' in docstring" % expected[0],funcFilename,funcName)
 		startingPoint = startingPointList[0]
 
 		# Go line by line from the starting point and check everything is there
 		for i,expectedStart in enumerate(expected):
+			if (startingPoint + i) >= len(docstring):
+				raise DocstringTestError("Expected '%s' in docstring" % expectedStart,funcFilename,funcName)
+
 			docstringLine = docstring[startingPoint + i]
 			if not docstringLine.startswith(expectedStart):
-				raise DocstringTestError("Expected '%s' in docstring of function %s in file %s" % (expectedStart,funcName,funcFilename))
+				raise DocstringTestError("Expected '%s' in docstring" % expectedStart,funcFilename,funcName)
 
 	# If we have exactly the parameter info and nothing else, then we're missing a description (of some length) about what the function does
 	if len(expected) == len(docstring):
-		raise DocstringTestError("Expected description of function in docstring of function %s in file %s" % (funcName,funcFilename))
+		raise DocstringTestError("Expected description of function in docstring" ,funcFilename,funcName)
 
 
 def processClass(c):
