@@ -22,6 +22,7 @@ docstringtest
 docstringtest is a small package for regression testing of docstrings in Python code. It checks that all appropriate methods and functions are using ReST docstrings with parameter information so that nice documentation can be generated. This format looks like:
 
 .. code-block:: python
+
    def example_function(varA,varB):
       """
       This function does nothing
