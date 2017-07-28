@@ -1,8 +1,13 @@
+=============
 docstringtest
--------------
+=============
 
-|build-status| |coverage| |docs| |license|
+|pypi| |build-status| |coverage| |docs| |license|
 
+.. |pypi| image:: https://img.shields.io/pypi/v/docstringtest.svg
+   :target: https://pypi.python.org/pypi/docstringtest
+   :alt: PyPI Release
+   
 .. |build-status| image:: https://travis-ci.org/jakelever/docstringtest.svg?branch=master
    :target: https://travis-ci.org/jakelever/docstringtest
    :alt: Travis CI status
@@ -36,3 +41,30 @@ docstringtest is a small package for regression testing of docstrings in Python 
 
 It makes it easy to check that the docstrings match with the current parameters so that documentation doesn't become out-of-step with the code. 
 
+Installation
+------------
+
+You can install "docstringtest" via `pip`_ from `PyPI`_::
+
+   $ pip install docstringtest
+   
+
+Contributing
+------------
+Contributions are very welcome.
+
+License
+-------
+
+Distributed under the terms of the `MIT`_ license, "docstringtest" is free and open source software
+
+Issues
+------
+
+If you encounter any problems, please `file an issue`_ along with a detailed description.
+
+
+.. _`MIT`: http://opensource.org/licenses/MIT
+.. _`file an issue`: https://github.com/jakelever/docstringtest/issues
+.. _`pip`: https://pypi.python.org/pypi/pip/
+.. _`PyPI`: https://pypi.python.org/pypi
