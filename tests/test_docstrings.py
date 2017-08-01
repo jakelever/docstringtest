@@ -3,10 +3,10 @@ import sys
 import os
 import importlib
 import docstringtest
-from docstringtest.examples.testclass_good import ExampleGoodClass
+from docstringtest.examples.goodclass import GoodClass
 
 def test_docstring_constructor():
-	func = ExampleGoodClass.__init__
+	func = GoodClass.__init__
 	expected = [':param self: description',
 		':param varA: description',
 		':param varB: description',
@@ -21,7 +21,7 @@ def test_docstring_constructor():
 
 
 def test_docstring_method():
-	func = ExampleGoodClass.basicMethod
+	func = GoodClass.basicMethod
 	expected = [':param self: description',
 		':param varA: description',
 		':param varB: description',
@@ -33,7 +33,7 @@ def test_docstring_method():
 	assert docstring == "\n".join(expected)
 
 def test_docstring_withReturn():
-	func = ExampleGoodClass.basicMethodWithReturn
+	func = GoodClass.basicMethodWithReturn
 	expected = [':param self: description',
 		':param varA: description',
 		':param varB: description',
@@ -47,7 +47,7 @@ def test_docstring_withReturn():
 	assert docstring == "\n".join(expected)
 
 def test_docstring_withYield():
-	func = ExampleGoodClass.basicMethodWithYield
+	func = GoodClass.basicMethodWithYield
 	expected = [':param self: description',
 		':param varA: description',
 		':param varB: description',

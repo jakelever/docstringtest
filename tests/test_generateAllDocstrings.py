@@ -1,10 +1,9 @@
 
-from docstringtest.examples.testclass_good import ExampleGoodClass
-import docstringtest.examples.testclass_good
+from docstringtest.examples.goodclass import GoodClass
 import docstringtest
 
 def test_generateAllDocstrings_class():
-	docstrings = docstringtest.generateAllDocstrings(docstringtest.examples.testclass_good.ExampleGoodClass)
+	docstrings = docstringtest.generateAllDocstrings(GoodClass)
 	for line in docstrings.split('\n'):
 		print "'%s'," % line
 	expected = [
@@ -98,6 +97,4 @@ def test_generateAllDocstrings_class():
 	]
 	assert docstrings.split('\n') == expected
 
-if __name__ == '__main__':
-	test_generateAllDocstrings_module()
 

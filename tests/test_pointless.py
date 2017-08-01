@@ -1,7 +1,7 @@
 
-import docstringtest.examples.testfunctions_good as goodfuncs
-from docstringtest.examples.testclass_good import ExampleGoodClass
-from docstringtest.examples.testclass_bad import ExampleBadClass
+import docstringtest.examples.goodfunctions as goodfuncs
+from docstringtest.examples.goodclass import GoodClass
+from docstringtest.examples.badclass import BadClass
 
 def test_pointless():
 	"""
@@ -15,31 +15,31 @@ def test_pointless():
 	assert goodfuncs._shouldBeSkippedWithReturn(None, None) == 1
 
 	# Test the class that doesn't have docstring issues
-	goodObj = ExampleGoodClass(None,None,None)
+	goodObj = GoodClass(None,None,None)
 	goodObj._shouldBeIgnored(None, None)
 	goodObj.basicMethod(None,None)
 	assert goodObj.basicMethodWithReturn(None,None) == 1
 	for i,val in enumerate(goodObj.basicMethodWithYield(None,None)):
 		assert i==val
 
-	ExampleGoodClass.staticMethodNoVariables()
-	assert ExampleGoodClass.staticMethodNoVariablesWithReturn() == 1
-	for i,val in enumerate(ExampleGoodClass.staticMethodNoVariablesWithYield()):
+	GoodClass.staticMethodNoVariables()
+	assert GoodClass.staticMethodNoVariablesWithReturn() == 1
+	for i,val in enumerate(GoodClass.staticMethodNoVariablesWithYield()):
 		assert i==val
-	ExampleGoodClass.staticMethod(None)
-	assert ExampleGoodClass.staticMethodWithReturn(None) == 1
+	GoodClass.staticMethod(None)
+	assert GoodClass.staticMethodWithReturn(None) == 1
 	
 	# Test the class that doesn't have docstring issues
-	badObj = ExampleBadClass(None,None,None)
+	badObj = BadClass(None,None,None)
 	badObj._shouldBeIgnored(None, None)
 	badObj.basicMethod(None,None)
 	assert badObj.basicMethodWithReturn(None,None) == 1
 	for i,val in enumerate(badObj.basicMethodWithYield(None,None)):
 		assert i==val
 
-	ExampleBadClass.staticMethodNoVariables()
-	assert ExampleBadClass.staticMethodNoVariablesWithReturn() == 1
-	for i,val in enumerate(ExampleBadClass.staticMethodNoVariablesWithYield()):
+	BadClass.staticMethodNoVariables()
+	assert BadClass.staticMethodNoVariablesWithReturn() == 1
+	for i,val in enumerate(BadClass.staticMethodNoVariablesWithYield()):
 		assert i==val
-	ExampleBadClass.staticMethod(None)
-	assert ExampleBadClass.staticMethodWithReturn(None) == 1
+	BadClass.staticMethod(None)
+	assert BadClass.staticMethodWithReturn(None) == 1
