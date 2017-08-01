@@ -29,7 +29,7 @@ def generateDocstring(func):
 	types = [ ":type %s: type description" % methodArg for methodArg in methodArgs ]
 
 	# Remove first parameter if name is self (like a method of a class)
-	if inspect.ismethod(func) and len(methodArgs) >= 1 and methodArgs[0] == 'self':
+	if len(methodArgs) >= 1 and methodArgs[0] == 'self':
 		params = params[1:]
 		types = types[1:]
 
@@ -67,7 +67,7 @@ def processFunction(func):
 	types = [ ":type %s:" % methodArg for methodArg in methodArgs ]
 	
 	# Remove first parameter if name is self (like a method of a class)
-	if inspect.ismethod(func) and len(methodArgs) >= 1 and methodArgs[0] == 'self':
+	if len(methodArgs) >= 1 and methodArgs[0] == 'self':
 		params = params[1:]
 		types = types[1:]
 
