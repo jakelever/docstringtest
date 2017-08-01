@@ -1,5 +1,5 @@
 
-class ExampleBadClass:
+class BadClass:
 	def __init__(self, varA, varB, varC):
 		pass
 

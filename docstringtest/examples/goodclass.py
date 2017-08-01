@@ -1,5 +1,5 @@
 
-class ExampleGoodClass:
+class GoodClass:
 	def __init__(self, varA, varB, varC):
 		"""
 		Some basic description
