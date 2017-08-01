@@ -1,4 +1,5 @@
 
+import os
 import inspect
 
 class DocstringTestError(RuntimeError):
@@ -6,7 +7,7 @@ class DocstringTestError(RuntimeError):
 		super(DocstringTestError, self).__init__(message)
 		self.message = message
 		self.funcName = funcName
-		self.filename = filename
+		self.filename = os.path.abspath(filename)
 	
 	def __str__(self):
 		return "%s for function %s in file %s" % (self.message,self.funcName,self.filename)
