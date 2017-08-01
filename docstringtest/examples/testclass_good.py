@@ -18,26 +18,6 @@ class ExampleGoodClass:
 	def _shouldBeIgnored(self, varA, varB):
 		pass
 
-	def staticMethod(varA):
-		"""
-		Some basic description
-
-		:param varA: description
-		:type varA: type description
-		"""
-		pass
-	
-	def staticMethodWithReturn(varA):
-		"""
-		Some basic description
-
-		:param varA: description
-		:type varA: type description
-		:return: return description
-		:rtype: the return type description
-		"""
-		return 1
-
 	def basicMethod(self,varA,varB):
 		"""
 		Some basic description
@@ -82,12 +62,36 @@ class ExampleGoodClass:
 		for i in range(10):
 			yield i
 
+	@staticmethod
+	def staticMethod(varA):
+		"""
+		Some basic description
+
+		:param varA: description
+		:type varA: type description
+		"""
+		pass
+	
+	@staticmethod
+	def staticMethodWithReturn(varA):
+		"""
+		Some basic description
+
+		:param varA: description
+		:type varA: type description
+		:return: return description
+		:rtype: the return type description
+		"""
+		return 1
+
+	@staticmethod
 	def staticMethodNoVariables():
 		"""
 		Some basic description
 		"""
 		pass
 
+	@staticmethod
 	def staticMethodNoVariablesWithReturn():
 		"""
 		Some basic description
@@ -97,6 +101,7 @@ class ExampleGoodClass:
 		"""
 		return 1
 
+	@staticmethod
 	def staticMethodNoVariablesWithYield():
 		"""
 		Some basic description

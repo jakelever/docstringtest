@@ -6,23 +6,6 @@ class ExampleBadClass:
 	def _shouldBeIgnored(self, varA, varB):
 		pass
 
-	def staticMethod(varA):
-		"""
-		Some basic description
-
-		:param varA: description
-		"""
-		pass
-	
-	def staticMethodWithReturn(varA):
-		"""
-		Some basic description
-
-		:param varA: description
-		:type varA: type description
-		"""
-		return 1
-
 	def basicMethod(self,varA,varB):
 		"""
 		Some basic description
@@ -56,6 +39,26 @@ class ExampleBadClass:
 		for i in range(10):
 			yield i
 
+	@staticmethod
+	def staticMethod(varA):
+		"""
+		Some basic description
+
+		:param varA: description
+		"""
+		pass
+	
+	@staticmethod
+	def staticMethodWithReturn(varA):
+		"""
+		Some basic description
+
+		:param varA: description
+		:type varA: type description
+		"""
+		return 1
+
+	@staticmethod
 	def staticMethodNoVariables():
 		"""
 		Some basic description
