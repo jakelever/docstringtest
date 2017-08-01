@@ -68,6 +68,7 @@ class ExampleBadClass:
 		"""
 		pass
 
+	@staticmethod
 	def staticMethodNoVariablesWithReturn():
 		"""
 		:return: return description
@@ -75,6 +76,7 @@ class ExampleBadClass:
 		"""
 		return 1
 
+	@staticmethod
 	def staticMethodNoVariablesWithYield():
 		for i in range(10):
 			yield i
