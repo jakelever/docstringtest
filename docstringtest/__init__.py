@@ -38,14 +38,15 @@ def generateDocstring(func):
 	return txt
 
 def generateAllDocstrings(c):
+	output = []
 	for name,obj in inspect.getmembers(c):
 		if inspect.ismethod(obj) or inspect.isfunction(obj):
-			print("-"*30)
-			print(name)
-			print('"""')
-			print(docstringtest.generateDocstring(obj))
-			print('"""')
-
+			output.append("-"*30)
+			output.append(name)
+			output.append('"""')
+			output.append(docstringtest.generateDocstring(obj))
+			output.append('"""')
+	return "\n".join(output)
 
 def processFunction(func):
 	funcName = func.__code__.co_name
