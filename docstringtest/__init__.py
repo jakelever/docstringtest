@@ -44,7 +44,7 @@ def generateAllDocstrings(c):
 			output.append("-"*30)
 			output.append(name)
 			output.append('"""')
-			output.append(docstringtest.generateDocstring(obj))
+			output.append(generateDocstring(obj))
 			output.append('"""')
 	return "\n".join(output)
 
