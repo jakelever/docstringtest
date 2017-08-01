@@ -2,17 +2,14 @@
 import inspect
 
 class DocstringTestError(RuntimeError):
-	def __init__(self, message, filename, funcName=None):
+	def __init__(self, message, filename, funcName):
 		super(DocstringTestError, self).__init__(message)
 		self.message = message
 		self.funcName = funcName
 		self.filename = filename
 	
 	def __str__(self):
-		if self.funcName is None:
-			return "%s in file %s" % (self.message,self.filename)
-		else:	
-			return "%s for function %s in file %s" % (self.message,self.funcName,self.filename)
+		return "%s for function %s in file %s" % (self.message,self.funcName,self.filename)
 
 def codeReturnsSomething(func):
 	sourceCode = inspect.getsource(func).split('\n')
