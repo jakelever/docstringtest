@@ -17,7 +17,6 @@ def testfunctionWithReturn(varA, varB, varC):
 	:param varA: description
 	:param varB: description
 	:param varC: description
-	:type self: type description
 	:type varA: type description
 	:type varB: type description
 	:type varC: type description
