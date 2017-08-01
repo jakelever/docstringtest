@@ -23,6 +23,8 @@ def codeReturnsSomething(func):
 	return False
 
 def generateDocstring(func):
+	assert inspect.isfunction(func) or inspect.ismethod(func)
+
 	methodArgs = func.__code__.co_varnames[:func.__code__.co_argcount]
 	
 	params = [ ":param %s: description" % methodArg for methodArg in methodArgs ]
@@ -34,6 +36,16 @@ def generateDocstring(func):
 	txt = "\n".join(params + types + returns)
 
 	return txt
+
+def generateAllDocstrings(c):
+	for name,obj in inspect.getmembers(c):
+		if inspect.ismethod(obj) or inspect.isfunction(obj):
+			print("-"*30)
+			print(name)
+			print('"""')
+			print(docstringtest.generateDocstring(obj))
+			print('"""')
+
 
 def processFunction(func):
 	funcName = func.__code__.co_name
