@@ -4,8 +4,6 @@ import docstringtest
 
 def test_generateAllDocstrings_class():
 	docstrings = docstringtest.generateAllDocstrings(GoodClass)
-	for line in docstrings.split('\n'):
-		print "'%s'," % line
 	expected = [
 	 '------------------------------',
 	 '__init__',
