@@ -4,11 +4,9 @@ class GoodClass:
 		"""
 		Some basic description
 
-		:param self: description
 		:param varA: description
 		:param varB: description
 		:param varC: description
-		:type self: type description
 		:type varA: type description
 		:type varB: type description
 		:type varC: type description
@@ -22,10 +20,8 @@ class GoodClass:
 		"""
 		Some basic description
 
-		:param self: description
 		:param varA: description
 		:param varB: description
-		:type self: type description
 		:type varA: type description
 		:type varB: type description
 		"""
@@ -35,10 +31,8 @@ class GoodClass:
 		"""
 		Some basic description
 
-		:param self: description
 		:param varA: description
 		:param varB: description
-		:type self: type description
 		:type varA: type description
 		:type varB: type description
 		:return: return description
@@ -50,10 +44,8 @@ class GoodClass:
 		"""
 		Some basic description
 
-		:param self: description
 		:param varA: description
 		:param varB: description
-		:type self: type description
 		:type varA: type description
 		:type varB: type description
 		:return: return description

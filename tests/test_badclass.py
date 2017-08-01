@@ -56,25 +56,25 @@ def test_function_bad_staticMethodWithReturn():
 def test_function_bad_basicMethod():
 	with pytest.raises(docstringtest.DocstringTestError) as excinfo:
 		docstringtest.processFunction(docstringtest.examples.badclass.BadClass.basicMethod)
-	assert excinfo.value.message == "Missing ':param self:' in docstring"
+	assert excinfo.value.message == "Missing ':param varA:' in docstring"
 	assert excinfo.value.funcName == "basicMethod"
-	assert str(excinfo.value) == "Missing ':param self:' in docstring for function basicMethod in file %s" % exampleclassFilename
+	assert str(excinfo.value) == "Missing ':param varA:' in docstring for function basicMethod in file %s" % exampleclassFilename
 	assert os.path.basename(excinfo.value.filename) == 'badclass.py'
 
 def test_function_bad_basicMethodWithReturn():
 	with pytest.raises(docstringtest.DocstringTestError) as excinfo:
 		docstringtest.processFunction(docstringtest.examples.badclass.BadClass.basicMethodWithReturn)
-	assert excinfo.value.message == "Missing ':param varB:' in docstring"
+	assert excinfo.value.message == "Missing ':param varA:' in docstring"
 	assert excinfo.value.funcName == "basicMethodWithReturn"
-	assert str(excinfo.value) == "Missing ':param varB:' in docstring for function basicMethodWithReturn in file %s" % exampleclassFilename
+	assert str(excinfo.value) == "Missing ':param varA:' in docstring for function basicMethodWithReturn in file %s" % exampleclassFilename
 	assert os.path.basename(excinfo.value.filename) == 'badclass.py'
 
 def test_function_bad_basicMethodWithYield():
 	with pytest.raises(docstringtest.DocstringTestError) as excinfo:
 		docstringtest.processFunction(docstringtest.examples.badclass.BadClass.basicMethodWithYield)
-	assert excinfo.value.message == "Missing ':return:' in docstring"
+	assert excinfo.value.message == "Missing ':param varA:' in docstring"
 	assert excinfo.value.funcName == "basicMethodWithYield"
-	assert str(excinfo.value) == "Missing ':return:' in docstring for function basicMethodWithYield in file %s" % exampleclassFilename
+	assert str(excinfo.value) == "Missing ':param varA:' in docstring for function basicMethodWithYield in file %s" % exampleclassFilename
 	assert os.path.basename(excinfo.value.filename) == 'badclass.py'
 
 def test_function_bad_staticMethodNoVariables():
