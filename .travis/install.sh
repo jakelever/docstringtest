@@ -26,3 +26,5 @@ else
 	echo
 fi
 
+python --version
+
