@@ -24,6 +24,7 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 #		source venv/bin/activate;
 #		pyenv virtualenv -p /usr/local/opt/python/libexec/bin/python2 myenv2
 #		pyenv activate myenv2
+		pip2 install --upgrade virtualenv
 		virtualenv env2 -p python2
 		source env2/bin/activate
 		;;
@@ -38,6 +39,7 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 #		source venv/bin/activate;
 #		pyenv virtualenv -p `which python3` myenv3
 #		pyenv activate myenv3
+		pip3 install --upgrade virtualenv
 		virtualenv env3 -p python3
 		source env3/bin/activate
 		;;
