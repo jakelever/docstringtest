@@ -1,5 +1,5 @@
 #!/bin/bash
-set -euxo pipefail
+set -exo pipefail
 
 echo "travis_fold:start:SCRIPT folding starts"
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
