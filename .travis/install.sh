@@ -1,4 +1,5 @@
 #!/bin/bash
+set -euxo pipefail
 
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 
