@@ -17,7 +17,7 @@ matrix:
       language: generic
       env: TOXENV=py36
 install:
-  - ./.travis/install.sh
+  - source ./.travis/install.sh
   - pip install --upgrade pip setuptools wheel
   - pip install pytest coverage pytest-timeout
   - pip install python-coveralls
