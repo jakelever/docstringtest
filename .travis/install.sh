@@ -1,10 +1,12 @@
 #!/bin/bash
 set -euxo pipefail
 
+echo "travis_fold:start:SCRIPT folding starts"
 if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 
 	# Install some custom requirements on OS X
 	# e.g. brew install pyenv-virtualenv
+
 	brew update
 	brew install pyenv-virtualenv
 
@@ -38,4 +40,5 @@ else
 	# Install some custom requirements on Linux
 	done=1
 fi
+echo "travis_fold:end:SCRIPT folding ends"
 
