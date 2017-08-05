@@ -26,6 +26,7 @@ if [[ $TRAVIS_OS_NAME == 'osx' ]]; then
 #		pyenv activate myenv2
 		pip2 install --upgrade virtualenv
 		virtualenv env2 -p python2
+		ls -l env2/bin
 		PS1=${PS1:=} source env2/bin/activate
 		;;
 	py36)
