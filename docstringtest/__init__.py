@@ -3,13 +3,34 @@ import os
 import inspect
 
 class DocstringTestError(RuntimeError):
+	"""
+	Special Error for Docstring test failures where an appropriate docstring is not found for a function/method
+	"""
+
 	def __init__(self, message, filename, funcName):
+		"""
+		Constructor for the DocstringTestError class
+
+		:param message: Message for the specific error
+		:param filename: Filename for the Python code that contains the function/method
+		:param funcName: Name of the function which has an docstring error
+		:type message: str
+		:type filename: str
+		:type funcName: str
+		"""
+
 		super(DocstringTestError, self).__init__(message)
 		self.message = message
 		self.funcName = funcName
 		self.filename = os.path.abspath(filename)
 	
 	def __str__(self):
+		"""
+		Get a string representation of the error
+		
+		:return: String representation of this error including the message, function name and filename
+		:rtype: str
+		"""
 		return "%s for function %s in file %s" % (self.message,self.funcName,self.filename)
 
 def codeReturnsSomething(func):
