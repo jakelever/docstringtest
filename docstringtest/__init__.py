@@ -42,7 +42,7 @@ def generateDocstring(func):
 	return txt
 
 def generateAllDocstrings(c):
-	assert inspect.isclass(c)
+	assert inspect.isclass(c) or inspect.ismodule(c)
 	output = []
 	for name,obj in inspect.getmembers(c):
 		if inspect.ismethod(obj) or inspect.isfunction(obj):
