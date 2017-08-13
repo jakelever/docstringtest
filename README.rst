@@ -41,6 +41,16 @@ docstringtest is a small package for regression testing of docstrings in Python 
 
 It makes it easy to check that the docstrings match with the current parameters so that documentation doesn't become out-of-step with the code. 
 
+If you wanted to add docstringtest to a standard test algorithm, it would simply be something like this
+
+.. code:: python
+
+        import mymodule
+        import docstringtest
+
+        def test_docstringtest():
+                docstringtest.testModule(mymodule)
+
 Installation
 ------------
 
