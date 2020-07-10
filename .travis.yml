@@ -1,29 +1,11 @@
 language: python
-
-matrix:
-  include:
-    - os: linux
-      sudo: required
-      python: 2.7
-      env: TOXENV=py27
-    - os: linux
-      sudo: required
-      python: 3.6
-      env: TOXENV=py36
-    - os: osx
-      language: generic
-      env: TOXENV=py27
-    - os: osx
-      language: generic
-      env: TOXENV=py36
 install:
-  - source ./.travis/install.sh
+  - python --version
   - pip install --upgrade pip setuptools wheel
   - pip install pytest coverage pytest-timeout
   - pip install coveralls
   - pip install --upgrade coverage
   - pip install .
-# command to run tests
 script:
   - coverage run --branch -m pytest -v --timeout=90 && coverage report -m
 after_success:
