@@ -20,7 +20,7 @@ install:
   - source ./.travis/install.sh
   - pip install --upgrade pip setuptools wheel
   - pip install pytest coverage pytest-timeout
-  - pip install python-coveralls
+  - pip install coveralls
   - pip install --upgrade coverage
   - pip install .
 # command to run tests
